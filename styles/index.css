@@ -84,8 +84,14 @@ a {
 
 .profile__role {
   margin: 16px 0 0;
-  font-size: 14px;
-  opacity: 0.75;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  letter-spacing: 0;
+
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .profile__description {
