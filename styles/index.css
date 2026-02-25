@@ -26,7 +26,7 @@
 body {
   margin: 0;
   font-family: "Open Sans", Arial, sans-serif;
-  background-color: #111111; /* Figma base */
+  background-color: #111111;
   color: #ffffff;
 }
 
@@ -89,7 +89,7 @@ a {
   line-height: 25px;
   font-weight: 400;
   letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.85); /* recomendado */
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .profile__links {
@@ -127,7 +127,7 @@ a {
     flex-direction: column;
     gap: 32px;
     padding-top: 24px;
-    margin-bottom: 80px; /* en móvil reduce el hueco */
+    margin-bottom: 80px;
   }
 
   .profile__info {
@@ -206,5 +206,45 @@ a {
 @media (max-width: 768px) {
   .skills__list {
     gap: 40px;
+  }
+}
+
+/* Projects */
+.projects {
+  margin-top: 100px; /* Figma: 100 entre skills icons y este título */
+}
+
+.section__title {
+  margin: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 40px;
+  line-height: 44px;
+  color: #ffffff;
+}
+
+.projects__list {
+  margin: 50px 0 0; /* Figma: 50 entre título y cards */
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; /* Si en Figma ves otro valor lo ajustamos */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects {
+    margin-top: 80px; /* reduce un poco en móvil */
+  }
+
+  .projects__list {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+
+  .projects__title {
+    font-size: 32px;
+    line-height: 36px;
   }
 }
