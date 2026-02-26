@@ -1,8 +1,9 @@
 /* Fonts */
 @font-face {
   font-family: "Archivo Black";
-  src: url("../fonts/ArchivoBlack-Regular.woff2") format("woff2"),
-       url("../fonts/ArchivoBlack-Regular.woff") format("woff");
+  src:
+    url("../fonts/ArchivoBlack-Regular.woff2") format("woff2"),
+    url("../fonts/ArchivoBlack-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,13 +11,14 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
-       url("../fonts/OpenSans-Regular.woff") format("woff");
+  src:
+    url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
-/* Tip: estilos base para empezar el proyecto */
+/* estilos base para empezar el proyecto */
 *,
 *::before,
 *::after {
@@ -211,7 +213,7 @@ a {
 
 /* Projects */
 .projects {
-  margin-top: 100px; /* Figma: 100 entre skills icons y este título */
+  margin-top: 100px;
 }
 
 .section__title {
@@ -222,29 +224,158 @@ a {
   color: #ffffff;
 }
 
+/* Grid de cards */
 .projects__list {
-  margin: 50px 0 0; /* Figma: 50 entre título y cards */
+  margin: 50px 0 0;
   padding: 0;
   list-style: none;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px; /* Si en Figma ves otro valor lo ajustamos */
+  grid-template-columns: repeat(2, 590px);
+  gap: 20px;
+}
+
+/* Card base */
+.project-card {
+  width: 590px;
+  background-color: #1c1c1c;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.project-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card__image {
+  position: relative;
+  width: 590px;
+  height: 330px;
+}
+
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* BADGES */
+.project-card__badges {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-card__badge {
+  width: 40px;
+  height: 40px;
+}
+
+.project-card__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* CONTENT */
+.project-card__content {
+  padding: 30px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card__title {
+  margin: 0 0 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: #ffffff;
+}
+
+.project-card__description {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* LINKS (Demo / GitHub)*/
+
+.project-card__links {
+  margin-top: auto;
+  margin-left: -30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.project-card__link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+
+  transition: opacity 0.25s ease;
+}
+
+.project-card__link-item--primary {
+  color: #6d6dff;
+}
+.project-card__link-item:hover {
+  opacity: 0.7;
+}
+
+.project-card__link-item img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.project-card__icon {
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  display: inline-block;
+  flex: 0 0 22px;
+}
+
+.project-card__icon img {
+  height: 22px;
+  width: auto;
+  display: block;
+
+  transform-origin: left center;
+  transform: scale(3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .projects {
-    margin-top: 80px; /* reduce un poco en móvil */
+    margin-top: 80px;
   }
 
   .projects__list {
     grid-template-columns: 1fr;
     margin-top: 32px;
-  }
-
-  .projects__title {
-    font-size: 32px;
-    line-height: 36px;
   }
 }
