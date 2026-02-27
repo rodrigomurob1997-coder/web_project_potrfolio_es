@@ -117,10 +117,34 @@ a {
   opacity: 0.7;
 }
 
-.profile__image {
+.profile__image-container {
+  position: relative;
+  /* 1. Se Mueven las dimensiones aquí para que el contenedor sea el que mande */
   width: 387px;
   height: 500px;
+  /* 2. Evita que el Flexbox lo comprima */
+  flex-shrink: 0;
+}
+
+.profile__image-container::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 90%;
+  height: 80%;
+  background-color: #b86efc;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.profile__image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* Responsive */
@@ -137,11 +161,26 @@ a {
     flex: unset;
   }
 
+  /* El contenedor ahora controla el tamaño y el centrado en móvil */
+  .profile__image-container {
+    width: 100%;
+    height: 280px; /* Altura reducida para móvil */
+    max-width: 387px; /* Mantiene el límite de ancho */
+    margin: 0 auto; /* Centra la foto y el brillo horizontalmente */
+    flex-shrink: 0;
+  }
+
+  .profile__image-container::before {
+    filter: blur(50px);
+    opacity: 0.4;
+  }
+
+  /* La imagen ahora solo obedece al contenedor padre */
   .profile__image {
     width: 100%;
-    height: 280px;
-    max-width: 387px;
-    margin: 0 auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .profile__name {
