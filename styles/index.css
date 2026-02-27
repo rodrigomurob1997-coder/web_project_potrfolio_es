@@ -219,6 +219,7 @@ a {
   gap: 180px;
 }
 
+/* Responsive Skills */
 .skills__item {
   width: 50px;
   height: 57px;
@@ -235,8 +236,6 @@ a {
   max-height: none;
   object-fit: contain;
 }
-
-/* Responsive Skills */
 
 @media (max-width: 1200px) {
   .skills__list {
@@ -352,7 +351,7 @@ a {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* LINKS (Demo / GitHub)*/
+/* LINKS (Demo / GitHub) */
 .project-card__links {
   margin-top: auto;
   margin-left: -30px;
@@ -630,5 +629,185 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+/* ajustes responsivos para mobile */
+@media (max-width: 320px) {
+  /* Evitar scroll horizontal por elementos con width fijo */
+  body {
+    overflow-x: hidden;
+  }
+
+  .main {
+    padding: 20px; /* en mobile Figma se ve más compacto */
+    overflow-x: hidden;
+  }
+
+  /* Profile: columna (imagen arriba, texto abajo) */
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 0;
+    margin-bottom: 48px;
+  }
+
+  .profile__info {
+    width: 100%;
+    flex: none;
+    max-width: none;
+  }
+
+  .profile__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .profile__role {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 12px 0 16px;
+  }
+
+  .profile__description {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 16px;
+  }
+
+  /* Links en columna como Figma */
+  .profile__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .profile__link {
+    font-size: 12px;
+    line-height: 16px;
+    border-bottom-width: 4px;
+    padding-bottom: 4px;
+  }
+
+  /* Imagen: full width en mobile */
+  .profile__image-container {
+    width: 100%;
+    height: 160px; /* ajusta si tu imagen en Figma es más alta */
+    flex: none;
+  }
+
+  /* Glow más suave */
+  .profile__image-container::before {
+    filter: blur(45px);
+    opacity: 0.35;
+  }
+
+  /* Habilidades */
+  .skills {
+    margin-top: 40px;
+  }
+
+  .skills__list {
+    flex-wrap: wrap; /* en mobile sí debe brincar */
+    justify-content: flex-start;
+    gap: 18px;
+    margin-top: 16px;
+  }
+
+  .skills__item img {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Proyectos */
+  .projects {
+    margin-top: 40px;
+  }
+
+  .projects__list {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    margin-top: 20px;
+  }
+
+  .project-card,
+  .project-card__image {
+    width: 100%;
+    max-width: none;
+  }
+
+  .project-card__image {
+    height: auto;
+    aspect-ratio: 590 / 330;
+  }
+
+  /* Contenido de cards más compacto en mobile */
+  .project-card__content {
+    padding: 18px;
+  }
+
+  .project-card__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 14px;
+  }
+
+  .project-card__description {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 14px;
+  }
+
+  .project-card__links {
+    margin-left: 0;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* Footer compacto */
+  .footer {
+    padding: 48px 0 28px;
+    margin-top: 0;
+  }
+
+  .footer__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .footer__email {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .footer__socials {
+    gap: 32px;
+  }
+}
+
+/* ajustes responsivos para mobile (orden de imagen primero) */
+@media (max-width: 480px) {
+  .profile__image-container {
+    height: 300px;
+    order: -1; /* pone la foto arriba */
+  }
+
+  .profile__info {
+    order: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills__title {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}
+
+/* ajustes responsivos para mobile (cards sin min-height) */
+@media (max-width: 320px) {
+  .project-card__content {
+    min-height: 0; /* elimina el estiramiento */
   }
 }
