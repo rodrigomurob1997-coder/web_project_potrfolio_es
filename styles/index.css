@@ -47,7 +47,7 @@ a {
 .main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 120px;
+  padding: 0 auto;
 }
 
 /* Hero / Profile */
@@ -119,10 +119,8 @@ a {
 
 .profile__image-container {
   position: relative;
-  /* 1. Se Mueven las dimensiones aquí para que el contenedor sea el que mande */
   width: 387px;
   height: 500px;
-  /* 2. Evita que el Flexbox lo comprima */
   flex-shrink: 0;
 }
 
@@ -130,10 +128,10 @@ a {
   content: "";
   position: absolute;
   top: 60%;
-  left: 50%;
-  width: 90%;
-  height: 80%;
-  background-color: #b86efc;
+  left: 30%;
+  width: 70%;
+  height: 70%;
+  background-color: #7580ff;
   transform: translate(-50%, -50%);
   filter: blur(80px);
   opacity: 0.5;
@@ -147,7 +145,17 @@ a {
   display: block;
 }
 
-/* Responsive */
+/* Responsive Profile */
+@media (max-width: 1200px) {
+  .main {
+    padding: 60px 40px; /* Reducción de padding para que no se vea apretado en tablets */
+  }
+  .profile__info {
+    width: auto;
+    flex: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .profile {
     flex-direction: column;
@@ -161,12 +169,11 @@ a {
     flex: unset;
   }
 
-  /* El contenedor ahora controla el tamaño y el centrado en móvil */
   .profile__image-container {
     width: 100%;
-    height: 280px; /* Altura reducida para móvil */
-    max-width: 387px; /* Mantiene el límite de ancho */
-    margin: 0 auto; /* Centra la foto y el brillo horizontalmente */
+    height: 280px;
+    max-width: 387px;
+    margin: 0 auto;
     flex-shrink: 0;
   }
 
@@ -175,7 +182,6 @@ a {
     opacity: 0.4;
   }
 
-  /* La imagen ahora solo obedece al contenedor padre */
   .profile__image {
     width: 100%;
     height: 100%;
@@ -241,6 +247,8 @@ a {
 @media (max-width: 1200px) {
   .skills__list {
     gap: 80px;
+    flex-wrap: wrap; /* Evita que los iconos se salgan de la pantalla */
+    justify-content: center;
   }
 }
 
@@ -407,7 +415,19 @@ a {
   transform: scale(3);
 }
 
-/* Responsive */
+/* Responsive Projects */
+@media (max-width: 1200px) {
+  .projects__list {
+    grid-template-columns: 1fr; /* Cambia a una columna si el ancho es menor a 1200px */
+    justify-items: center;
+  }
+  .project-card,
+  .project-card__image {
+    width: 100%;
+    max-width: 590px; /* Mantiene tu tamaño pero permite que se adapte */
+  }
+}
+
 @media (max-width: 768px) {
   .projects {
     margin-top: 80px;
@@ -422,22 +442,40 @@ a {
 /* Footer (Contacto) */
 .footer {
   padding: 120px 0 80px;
-  margin-top: -65px; /* espacio vertical similar a Figma */
+  margin-top: -59px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 300px;
+  height: 300px;
+  background-color: #7580ff;
+  filter: blur(65px);
+  opacity: 0.4;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .footer__container {
-  max-width: 1160px; /* mismo ancho que el resto del layout */
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 20px;
-
   display: flex;
-  justify-content: center; /* centra horizontalmente */
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .footer__circle {
   text-align: center;
-  transform: translateX(115px);
 }
+
 .footer__social-link {
   display: inline-flex !important;
   width: 24px;
@@ -454,6 +492,7 @@ a {
   height: 24px !important;
   display: block;
 }
+
 .footer__socials {
   display: flex !important;
   justify-content: center;
@@ -461,6 +500,7 @@ a {
   gap: 80px;
   margin-top: 24px;
 }
+
 .footer__title {
   margin: 0;
   font-family: "Archivo Black", sans-serif;
@@ -474,13 +514,45 @@ a {
 .footer__email {
   display: inline-block;
   margin-top: 8px;
-
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0;
-
   text-decoration: none;
   color: #6d6dff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 80px 0 40px;
+    margin-top: 0;
+  }
+
+  .footer::before {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    filter: blur(50px);
+  }
+
+  .footer__circle {
+    transform: translateX(0);
+  }
+
+  .footer__socials {
+    gap: 40px;
+    margin-top: 32px;
+  }
+
+  .footer__title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .footer__email {
+    font-size: 16px;
+  }
 }
