@@ -74,6 +74,10 @@ a {
   color: #ffffff;
 }
 
+.profile__name span {
+  display: block;
+}
+
 .profile__role {
   margin: 15px 0 0;
   font-family: "Open Sans", sans-serif;
