@@ -47,7 +47,6 @@ a {
 .main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 auto;
 }
 
 /* Hero / Profile */
@@ -292,9 +291,9 @@ a {
 /* LINKS (Demo / GitHub) */
 .project-card__links {
   margin-top: auto;
-  margin-left: -30px;
+  margin-left: 0;
   display: flex;
-  gap: 30px;
+  gap: 16px;
   align-items: center;
 }
 
@@ -564,7 +563,6 @@ a {
 
 /* ajustes responsivos para mobile */
 @media (max-width: 320px) {
-  /* Evitar scroll horizontal por elementos con width fijo */
   body {
     overflow-x: hidden;
   }
@@ -623,8 +621,8 @@ a {
   /* Imagen: full width en mobile */
   .profile__image-container {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Hace que sea cuadrada */
-    max-width: 280px; /* Igual que Figma */
+    aspect-ratio: 1 / 1;
+    max-width: 280px;
     margin: 0 auto;
     flex: none;
   }
@@ -648,7 +646,7 @@ a {
   }
 
   .skills__list {
-    flex-wrap: wrap; /* en mobile sí debe brincar */
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 18px;
     margin-top: 16px;
