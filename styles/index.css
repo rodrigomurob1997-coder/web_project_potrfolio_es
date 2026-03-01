@@ -432,9 +432,13 @@ a {
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  letter-spacing: 0;
   text-decoration: none;
   color: #6d6dff;
+  transition: color 0.3s ease;
+}
+
+.footer__email:hover {
+  color: #ffffff;
 }
 
 /* ajustes responsivos 768 */
