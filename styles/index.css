@@ -548,6 +548,92 @@ a {
   }
 }
 
+/* ajustes responsivos 540 */
+@media (max-width: 540px) {
+  /* menos padding lateral para no aplastar el layout */
+  .main {
+    padding: 20px;
+  }
+
+  /* PROFILE: en móvil debe ir en columna (foto arriba, texto abajo) */
+  .profile {
+    flex-direction: column;
+    align-items: center; /* centra el bloque */
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .profile__image-container {
+    order: -1;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: none;
+  }
+
+  .profile__info {
+    width: 100%;
+    max-width: none;
+    flex: none;
+    text-align: left;
+  }
+
+  /* Tipografía fluida (se ve bien en 390, 430, 360, etc.) */
+  .profile__name {
+    font-size: clamp(40px, 10vw, 56px);
+    line-height: 1.05;
+  }
+
+  .profile__role,
+  .profile__description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* Links: en móvil mejor en columna (como ya haces en 320, pero antes) */
+  .profile__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .profile__link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* SKILLS: si no caben, que envuelvan (evita overflow horizontal) */
+
+  .skills__title {
+    font-size: clamp(32px, 8vw, 40px);
+    line-height: 1.1;
+  }
+
+  .skills__list {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .skills__item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .skills__item img {
+    max-width: 42px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* FOOTER: reduce gap para pantallas pequeñas */
+  .footer .footer__socials {
+    gap: 36px;
+    flex-wrap: nowrap;
+  }
+}
+
 /* ajustes responsivos para mobile (orden de imagen primero) */
 @media (max-width: 480px) {
   .profile__image-container {
